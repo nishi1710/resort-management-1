@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0fff0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .tick-container {
+            background-color: #d4edda;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tick {
+            font-size: 60px;
+            color: #28a745;
+        }
+
+        h2 {
+            color: #28a745;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .actions a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tick-container">
+    <div class="tick">✔</div>
+</div>
+
+<h2>Order Confirmed!</h2>
+<p>Your order has been successfully placed.</p>
+
+<div class="actions">
+    <a href="/food">Order Again</a>
+    <a href="/dashboard">Go to Home</a>
+</div>
+
+</body>
+</html>

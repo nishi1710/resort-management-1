@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Resort</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf2;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #b36b00;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group button {
+            background-color: #ffb84d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #e69900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Resort</h1>
+        <form th:action="@{'/admin/resorts/edit/' + ${resort.resortId}}" method="post">
+            <div class="form-group">
+                <label for="name">Resort Name</label>
+                <input type="text" id="name" name="name" th:value="${resort.name}" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" th:value="${resort.location}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Short Description</label>
+                <textarea id="description" name="description" rows="4" required th:text="${resort.description}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="longdescription">Long Description</label>
+                <textarea id="longdescription" name="longdescription" rows="6" required th:text="${resort.longdescription}"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Update Resort</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

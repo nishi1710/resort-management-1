@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer Dashboard</title>
+    <style>
+        /* ... [same CSS as before] ... */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f9ff;
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 220px;
+            background-color: #68a6e1;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+        }
+
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #0059b3;
+        }
+
+        .main-content {
+            margin-left: 220px;
+            padding: 20px 40px;
+            width: calc(100% - 220px);
+        }
+
+        .welcome-banner {
+            background: linear-gradient(to right, #68a6e1, #0059b3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 700px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .carousel {
+            display: flex;
+            animation: slide 20s infinite;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 400px;
+            flex-shrink: 0;
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0%); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 95% { transform: translateX(-300%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .features, .offers {
+            margin-top: 40px;
+        }
+
+        .features h3, .offers h3 {
+            text-align: center;
+            color: #004080;
+        }
+
+        .feature-grid {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background-color: white;
+            width: 280px;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .feature-card h4 {
+            margin: 10px 0 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 th:text="'Hello, ' + ${user.name} + '!'">Welcome</h3>
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/my_bookings}">View Bookings</a>
+        <a th:href="@{/resorts}">View Resorts</a>
+        <a th:href="@{/food}">Order Food</a>
+        <a th:href="@{/support}">Help</a>
+        <a th:href="@{/logout}" style="margin-top: 20px; color: #ffcccc;">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="welcome-banner">
+            <h2>Welcome, <span th:text="${user.name}">Customer</span>!</h2>
+            <p>Plan your next perfect getaway with us!</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <img th:src="@{/images/resort1.jpg}" alt="Resort 1">
+                <img th:src="@{/images/dining3.jpg}" alt="Dining">
+                <img th:src="@{/images/beach.jpg}" alt="Beach Resort">
+                <img th:src="@{/images/spa.png}" alt="Spa">
+            </div>
+        </div>
+
+        <!-- Offers -->
+        <div class="offers">
+            <h3>Current Offers & Deals</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img th:src="@{/images/beach.jpg}" alt="Offer">
+                    <h4>20% Off on Beach Villas</h4>
+                    <p>Book a 3-night stay and get 20% off + complimentary spa.</p>
+                </div>
+                <div class="feature-card">
+                    <img th:src="@{/images/dining2.jpg}" alt="Dining Offer">
+                    <h4>Luxury Dining Experience</h4>
+                    <p>Reserve a candlelight dinner and get a free bottle of wine.</p>
+                </div>
+                <div class="feature-card">
+                    <img th:src="@{/images/pool.jpg}" alt="Pool Access">
+                    <h4>All Access Pass</h4>
+                    <p>Enjoy unlimited pool & gym access with every booking.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
