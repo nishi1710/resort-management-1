@@ -5,6 +5,23 @@
     <link rel="stylesheet" th:href="@{/css/resort_card.css}" />
 </head>
 <body>
+
+    <div style="margin: 20px;">
+        <a th:href="@{/dashboard}" style="text-decoration: none;">
+            <button style="
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #68a6e1;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            ">
+                ← Back to Dashboard
+            </button>
+        </a>
+    </div>
+    
     <h2>Available Resorts</h2>
 
     <div class="room-cards">

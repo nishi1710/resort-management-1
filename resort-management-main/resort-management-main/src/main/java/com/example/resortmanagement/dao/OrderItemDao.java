@@ -1,7 +1,8 @@
 package com.example.resortmanagement.dao;
 
-import com.example.resortmanagement.model.OrderItem;
 import java.util.List;
+
+import com.example.resortmanagement.model.OrderItem;
 
 public interface OrderItemDao {
 
